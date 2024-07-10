@@ -7,7 +7,6 @@ iMotifPredictor is a convolutional neural network (CNN) designed to predict i-mo
 
 ## Contents
 
-- **iMotifPredictor___ACM_BCB.pdf**: Research paper detailing the development and evaluation of iMotifPredictor.
 - **Model files**:
   - **atac_model_gen.h5**
   - **atac_model_rand.h5**
@@ -100,16 +99,18 @@ predict_and_save('input_chunk.csv', 'sequence_model_gen.h5', 'sequence_model')
 
 ### Models Description
 
-- **sequence_model_gen.h5**: Model trained using genomic sequences of length 124 encoded in one-hot format.
-- **sequence_model_perm.h5**: Model trained using dishuffle genomic sequences of length 124.
-- **sequence_model_rand.h5**: Model trained using randomly selected genomic sequences of length 124.
-- **micro_model_gen.h5**: Model trained using microarray data to predict iM propensity, requires sequences of length 60 encoded in one-hot format.
-- **micro_model_perm.h5**: Model trained using dishuffle microarray data.
-- **micro_model_rand.h5**: Model trained using randomly selected microarray data.
-- **atac_model_gen.h5**: Model trained using genomic sequences and ATAC-seq data, requires sequences of length 124 encoded in one-hot format and ATAC signals.
-- **atac_model_rand.h5**: Model trained using randomly selected ATAC-seq data.
-- **atacandmicro_model_gen.h5**: Model trained using genomic sequences, microarray data, and ATAC-seq data, requires sequences of length 124 encoded in one-hot format, microarray signals, and ATAC signals.
-- **atacandmicro_model_rand.h5**: Model trained using randomly selected genomic, microarray, and ATAC-seq data.
+All models, except for iMPropensity, were trained on HEK293T data and predict the probability of iM formation:
+
+- **sequence_model_gen.h5**: Model trained on GenNullSeq data , using sequences of length 124 encoded in one-hot format.
+- **sequence_model_perm.h5**: Model trained on dishuffled data, using sequences of length 124 encoded in one-hot format.
+- **sequence_model_rand.h5**: Model trained on randomly selected genomic sequences, using sequences of length 124 encoded in one-hot format.
+- **micro_model_gen.h5**: Model trained on GenNullSeq data and iMpropensity signals, requires sequences of length 124 encoded in one-hot format and microarray signals.
+- **micro_model_perm.h5**: Model trained on dishuffled data and iMpropensity signals, requires sequences of length 124 encoded in one-hot format and microarray signals.
+- **micro_model_rand.h5**: Model trained on randomly selected data and iMpropensity signals, requires sequences of length 124 encoded in one-hot format and microarray signals.
+- **atac_model_gen.h5**: Model trained on GenNullSeq genomic sequences and ATAC-seq data, requires sequences of length 124 encoded in one-hot format and ATAC signals.
+- **atac_model_rand.h5**: Model trained on randomly selected sequences and ATAC-seq data, requires sequences of length 124 encoded in one-hot format and ATAC signals.
+- **atacandmicro_model_gen.h5**: Model trained on GenNullSeq genomic sequences, iMpropensity data, and ATAC-seq data, requires sequences of length 124 encoded in one-hot format, microarray signals, and ATAC signals.
+- **atacandmicro_model_rand.h5**: Model trained on randomly selected genomic, iMpropensity data , and ATAC-seq data, requires sequences of length 124 encoded in one-hot format, microarray signals, and ATAC signals.
 - **iMPropensity.h5**: Model trained to predict iM propensity based on high-throughput microarray data, requires sequences of length 60 encoded in one-hot format.
 
 ### Using iMPropensity Model
@@ -136,6 +137,22 @@ encoded_sequence = np.array([encode_sequence(sequence)])
 # Make prediction
 prediction = model.predict(encoded_sequence)
 print(f'iM Propensity: {prediction[0][0]}')
+
+# Example of sliding window approach
+def sliding_window_prediction(sequence, model, window_size=60, stride=1):
+    encoded_windows = []
+    for i in range(0, len(sequence) - window_size + 1, stride):
+        window_seq = sequence[i:i+window_size]
+        encoded_windows.append(encode_sequence(window_seq))
+    encoded_windows = np.array(encoded_windows)
+    predictions = model.predict(encoded_windows)
+    return predictions
+
+# Sliding window prediction for a sequence of length 124
+sequence_124 = 'ACGT' * 31
+predictions = sliding_window_prediction(sequence_124, model)
+average_prediction = np.mean(predictions)
+print(f'Average iM Propensity: {average_prediction}')
 ```
 
 ## Conclusion
