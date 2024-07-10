@@ -101,10 +101,10 @@ predict_and_save('input_chunk.csv', 'sequence_model_gen.h5', 'sequence_model')
 ### Models Description
 
 - **sequence_model_gen.h5**: Model trained using genomic sequences of length 124 encoded in one-hot format.
-- **sequence_model_perm.h5**: Model trained using permuted genomic sequences of length 124.
+- **sequence_model_perm.h5**: Model trained using dishuffle genomic sequences of length 124.
 - **sequence_model_rand.h5**: Model trained using randomly selected genomic sequences of length 124.
 - **micro_model_gen.h5**: Model trained using microarray data to predict iM propensity, requires sequences of length 60 encoded in one-hot format.
-- **micro_model_perm.h5**: Model trained using permuted microarray data.
+- **micro_model_perm.h5**: Model trained using dishuffle microarray data.
 - **micro_model_rand.h5**: Model trained using randomly selected microarray data.
 - **atac_model_gen.h5**: Model trained using genomic sequences and ATAC-seq data, requires sequences of length 124 encoded in one-hot format and ATAC signals.
 - **atac_model_rand.h5**: Model trained using randomly selected ATAC-seq data.
