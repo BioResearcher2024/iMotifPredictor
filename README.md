@@ -7,7 +7,6 @@ iMotifPredictor is a convolutional neural network (CNN) designed to predict i-mo
 
 ## Contents
 
-- **iMotifPredictor___ACM_BCB.pdf**: Research paper detailing the development and evaluation of iMotifPredictor.
 - **iMotifPredictor_seq.py**: Script for predicting iM structures using only DNA sequence information.
 - **iMotifPredictor_atac.py**: Script for predicting iM structures using DNA sequence and open-chromatin information (ATAC-seq).
 - **iMotifPredictor_microarray.py**: Script for predicting iM propensity using microarray data.
