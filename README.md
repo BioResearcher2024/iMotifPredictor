@@ -83,7 +83,7 @@ predict_and_save('input_chunk.csv', 'sequence_model_gen.h5', 'sequence_model')
 ### Input Format
 
 - **DNA Sequences**: CSV file containing a column named `Sequence` with DNA sequences of the required length (either 60 or 124, depending on the model).
-- **Microarray Signal**: Column named `signal` containing iM propensity scores predicted by the microarray model.
+- **Microarray Signal**: Column named `signalmicroarray` containing iM propensity scores predicted by the microarray model.
 - **ATAC Signal**: Column named `atac_signal` containing open-chromatin signals.
 
 ### Models Description
