@@ -51,7 +51,7 @@ def predict_and_save(chunk_file, model_path, model_type):
         return np.array([mapping.get(base, [0, 0, 0, 0]) for base in sequence], dtype=np.int8)
 
     sequences = np.array([encode_sequence(seq) for seq in data['Sequence']])
-    signal = np.array(data['signal']).reshape(-1, 1)
+    iMpropensity = np.array(data['signalmicroarray']).reshape(-1, 1)
     atac_signal = np.array(data['atac_signal']).reshape(-1, 1)
 
     # Load the model
@@ -61,11 +61,11 @@ def predict_and_save(chunk_file, model_path, model_type):
     if model_type == 'sequence_model':
         predictions = model.predict(sequences, batch_size=128)
     elif model_type == 'micro_model':
-        predictions = model.predict([sequences, signal], batch_size=128)
+        predictions = model.predict([sequences, iMpropensity], batch_size=128)
     elif model_type == 'atac_model':
         predictions = model.predict([sequences, atac_signal], batch_size=128)
     elif model_type == 'atacandmicro_model':
-        predictions = model.predict([sequences, atac_signal, signal], batch_size=128)
+        predictions = model.predict([sequences, atac_signal, iMpropensity], batch_size=128)
     else:
         raise ValueError("Invalid model type")
 
