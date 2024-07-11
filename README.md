@@ -6,6 +6,67 @@
 iMotifPredictor is a convolutional neural network (CNN) designed to predict i-motif (iM) structures in DNA by integrating multiple data sources. iMs are non-canonical structures that form in single-stranded DNA and have been linked to various cellular functions and diseases. This project includes trained models for predicting iM structures using different data sources.
 
 ## Contents
+### AUROC
+Files used for calculating the AUROC (Area Under the Receiver Operating Characteristic curve) for each model with each type of negative dataset.
+
+### ATAC FILES
+A zipped folder containing bedGraph files used to calculate ATAC signals and the corresponding signal files. Includes a Python script for calculating the ATAC signals.
+
+### FASTA FILES
+FASTA formatted sequences used in the analysis.
+
+### GENNULLSEQ
+Text files of the negative sequences generated using the GenNullSeq package.
+Credit to the package:
+```plaintext
+@article{ghandi2016gkmsvm,
+  title={{gkmSVM}: an {R} package for gapped-kmer {SVM}},
+  author={Ghandi, Mahmoud and Mohammad-Noori, Morteza and Ghareghani, Narges and Lee, Dongwon and Garraway, Levi and Beer, Michael A},
+  journal={Bioinformatics},
+  volume={32},
+  number={14},
+  pages={2205--2207},
+  year={2016},
+  publisher={Oxford University Press}
+}
+```
+
+### IMSEEKER
+Results of running iM-Seeker and creating files for easier AUROC calculation.
+Credit to:
+```plaintext
+@article{yu2024seeker,
+  title={{iM-Seeker}: a webserver for {DNA} i-motifs prediction and scoring via automated machine learning},
+  author={Yu, Haopeng and Li, Fan and Yang, Bibo and Qi, Yiman and Guneri, Dilek and Chen, Wenqian and Waller, Zo{\"e} AE and Li, Ke and Ding, Yiliang},
+  journal={Nucleic Acids Research},
+  pages={gkae315},
+  year={2024},
+  publisher={Oxford University Press}
+}
+```
+
+### INTERPRETATION FILE
+A zipped file containing sequences created for model interpretation.
+
+### MICROARRAY FILES
+Processed microarray data table used for training along with signal files for different sequences.
+Credit:
+```plaintext
+https://academic.oup.com/nar/article/51/22/12020/7420102#429540511
+```
+
+### POS TXT FILES
+Processed positive sequences.
+Credit:
+```plaintext
+https://academic.oup.com/nar/article/51/16/8309/7232843
+```
+
+### RANDOM NEG
+Text files of randomly selected negative sequences.
+
+### TXT PERMUTATION
+Text files of dishuffled negative sequences.
 
 - **Model files**:
   - **atac_model_gen.h5**
