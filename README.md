@@ -7,7 +7,10 @@ iMotifPredictor is a convolutional neural network (CNN) designed to predict i-mo
 
 ## Contents
 - **AUROC**
-Files used for calculating the AUROC (Area Under the Receiver Operating Characteristic curve) for each model with each type of negative dataset.
+Files used for calculating the AUROC for each model with each type of negative dataset.
+
+- **data_statistics**
+  Files used to make graphs. 
 
 - **atac_files**
 A zipped folder containing bedGraph files used to calculate ATAC signals and the corresponding signal files. Includes a Python script for calculating the ATAC signals.
