@@ -6,23 +6,23 @@
 iMotifPredictor is a convolutional neural network (CNN) designed to predict i-motif (iM) structures in DNA by integrating multiple data sources. iMs are non-canonical structures that form in single-stranded DNA and have been linked to various cellular functions and diseases. This project includes trained models for predicting iM structures using different data sources.
 
 ## Contents
-### AUROC
+- **AUROC**
 Files used for calculating the AUROC (Area Under the Receiver Operating Characteristic curve) for each model with each type of negative dataset.
 
-### ATAC FILES
+- **atac_files**
 A zipped folder containing bedGraph files used to calculate ATAC signals and the corresponding signal files. Includes a Python script for calculating the ATAC signals.
 
-### FASTA FILES
+- **fasta_files**
 FASTA formatted sequences used in the analysis.
 
-### GENNULLSEQ
+ - **genNullSeq**
 Text files of the negative sequences generated using the GenNullSeq package.
 Credit to the package:
 ```plaintext
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937197/
 ```
 
-### IMSEEKER
+- **im_seeker**
 Results of running iM-Seeker and creating files for easier AUROC calculation.
 Credit to:
 ```plaintext
@@ -30,30 +30,30 @@ https://academic.oup.com/nar/article/52/W1/W19/7659304
 ```
 
 
-### INTERPRETATION FILE
+- **interpation_file**
 A zipped file containing sequences created for model interpretation.
 
-### MICROARRAY FILES
+- **microarray_files**
 Processed microarray data table used for training along with signal files for different sequences.
 Credit:
 ```plaintext
 https://academic.oup.com/nar/article/51/22/12020/7420102#429540511
 ```
 
-### POS TXT FILES
+- **pos_txt_files**
 Processed positive sequences.
 Credit:
 ```plaintext
 https://academic.oup.com/nar/article/51/16/8309/7232843
 ```
 
-### RANDOM NEG
+- **random_neg**
 Text files of randomly selected negative sequences.
 
-### TXT PERMUTATION
+- **txt_permutaion**
 Text files of dishuffled negative sequences.
 
-- **Model files**:
+- **models**:
   - **atac_model_gen.h5**
   - **atac_model_rand.h5**
   - **atacandmicro_model_gen.h5**
