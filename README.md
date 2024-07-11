@@ -19,31 +19,16 @@ FASTA formatted sequences used in the analysis.
 Text files of the negative sequences generated using the GenNullSeq package.
 Credit to the package:
 ```plaintext
-@article{ghandi2016gkmsvm,
-  title={{gkmSVM}: an {R} package for gapped-kmer {SVM}},
-  author={Ghandi, Mahmoud and Mohammad-Noori, Morteza and Ghareghani, Narges and Lee, Dongwon and Garraway, Levi and Beer, Michael A},
-  journal={Bioinformatics},
-  volume={32},
-  number={14},
-  pages={2205--2207},
-  year={2016},
-  publisher={Oxford University Press}
-}
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937197/
 ```
 
 ### IMSEEKER
 Results of running iM-Seeker and creating files for easier AUROC calculation.
 Credit to:
 ```plaintext
-@article{yu2024seeker,
-  title={{iM-Seeker}: a webserver for {DNA} i-motifs prediction and scoring via automated machine learning},
-  author={Yu, Haopeng and Li, Fan and Yang, Bibo and Qi, Yiman and Guneri, Dilek and Chen, Wenqian and Waller, Zo{\"e} AE and Li, Ke and Ding, Yiliang},
-  journal={Nucleic Acids Research},
-  pages={gkae315},
-  year={2024},
-  publisher={Oxford University Press}
-}
+https://academic.oup.com/nar/article/52/W1/W19/7659304
 ```
+
 
 ### INTERPRETATION FILE
 A zipped file containing sequences created for model interpretation.
